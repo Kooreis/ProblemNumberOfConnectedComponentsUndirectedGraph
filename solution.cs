@@ -1,15 +1,9 @@
-class Graph {
-    constructor(noOfVertices) {
-        this.noOfVertices = noOfVertices;
-        this.AdjList = new Map();
+DFS(v, visited) {
+        visited[v] = true;
+        let get_neighbours = this.AdjList.get(v);
+        for (let i in get_neighbours) {
+            let get_elem = get_neighbours[i];
+            if (!visited[get_elem])
+                this.DFS(get_elem, visited);
+        }
     }
-
-    addVertex(v) {
-        this.AdjList.set(v, []);
-    }
-
-    addEdge(v, w) {
-        this.AdjList.get(v).push(w);
-        this.AdjList.get(w).push(v);
-    }
-}
